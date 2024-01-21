@@ -1,35 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { api } from '../../api';
+import { useParams } from 'react-router-dom';
+import { format, parseISO } from 'date-fns';
 
-
-const NewStationPage: React.FC = () => {
+const UpdateStationDataPage: React.FC = () => {
   const [showSuccess, setShowSuccess] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
   const [loading, setLoading] = useState(false);
+  
+  const { stationId } = useParams<{ stationId: string }>();
+  
+  useEffect(() => {
+    const fetchStationData = async () => {
+      if (stationId) {
+        try {
+          const response = await api.stations.stationsRead(stationId!);
+          setValue('name', response.data.name);
+          setValue('location', response.data.location);
+          const dateObject = parseISO(response.data.open_date);
+          const formattedDate = format(dateObject, "yyyy-MM-dd'T'HH:mm");
+          setValue('open_date', formattedDate);
+          setValue('description', response.data.description);
+          setValue('status', response.data.status.toString());
+          setValue('image_url', response.data.image_url);
+        } catch (error) {
+          console.error('Ошибка при загрузке данных станции для редактирования:', error);
+        }
+      }
+    };
+
+    fetchStationData();
+  }, [stationId, setValue]);
 
   const onSubmit = async (data: any) => {
-    setLoading(true)
+    setLoading(true);
     setShowSuccess(false);
-    console.log(data);
 
     try {
-      const response = await api.stations.stationsCreate(data);
-      console.log('Станция успешно создана:', response.data);
+      const response = await api.stations.stationsUpdate(stationId!, data);
+      console.log('Станция успешно обновлена:', response.data);
       setShowSuccess(true);
     } catch (error) {
-      console.error('Ошибка при создании станции:', error);
+      console.error('Ошибка при обновлении станции:', error);
     } finally {
-        setLoading(false)
+      setLoading(false);
+    }
+  };
+
+  const onDelete = async () => {
+    if (window.confirm('Вы уверены, что хотите удалить станцию?')) {
+      try {
+        await api.stations.stationsDelete(stationId!);
+        console.log('Станция успешно удалена');
+      } catch (error) {
+        console.error('Ошибка при удалении станции:', error);
+      }
     }
   };
 
   return (
     <div className="container mt-5">
-      <h1>Добавить новую Станцию</h1>
+      <h1>Редактировать данные Станции</h1>
       {showSuccess && (
         <div className="alert alert-success" role="alert">
-          Станция добавлена.
+          Станция обновлена.
         </div>
       )}
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -73,11 +108,14 @@ const NewStationPage: React.FC = () => {
           <input type="text" className="form-control" {...register('image_url')} id="image_url" />
         </div>
         <button type="submit" className="btn btn-primary" disabled={loading}>
-          Создать станцию
+          Обновить станцию
+        </button>
+        <button type="button" className="btn btn-danger ms-2" onClick={onDelete} disabled={loading}>
+          Удалить станцию
         </button>
       </form>
     </div>
   );
 };
 
-export default NewStationPage;
+export default UpdateStationDataPage;

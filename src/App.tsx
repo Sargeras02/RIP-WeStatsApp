@@ -18,14 +18,17 @@ import OrderInfoPage from './pages/user/OrderInfoPage.tsx';
 import UserOrdersPage from './pages/user/UserOrdersPage.tsx';
 import OrdersDataPage from './pages/management/OrdersDataPage.tsx';
 import MeasurementsPage from './pages/MeasurementsPage.tsx';
+import UpdateStationDataPage from './pages/management/UpdateStationDataPage.tsx';
+import EditMeasurementsPage from './pages/management/EditMeasurementsPage.tsx';
+import SignupPage from './pages/SignupPage.tsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/RIP-WeStatsApp/',
     element: <HomePage />
   },
   {
-    path: '/stations',
+    path: '/RIP-WeStatsApp/stations',
     element: <StationsListPage />
   },
   {
@@ -39,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />
+  },
+  {
+    path: '/RIP-WeStatsApp/signup',
+    element: <SignupPage />
   },
   {
     path: '/profile',
@@ -71,6 +78,14 @@ const router = createBrowserRouter([
   {
     path: '/admin/addstation',
     element: <NewStationPage />
+  },
+  {
+    path: '/admin/editstation/:stationId',
+    element: <UpdateStationDataPage />
+  },
+  {
+    path: '/admin/editmeasurements',
+    element: <EditMeasurementsPage />
   }
 ])
 

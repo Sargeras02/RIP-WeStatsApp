@@ -6,7 +6,7 @@ import { WeatherStation } from '../api/WeStatsApiModel';
 
 const NewMeasurementPage: React.FC = () => {
     const [showSuccess, setShowSuccess] = useState(false);
-    const { register, handleSubmit, setValue } = useForm();
+    const { register, handleSubmit } = useForm();
     const [stations, setStations] = useState<WeatherStation[]>([]);
     const [loading, setLoading] = useState(false);
 

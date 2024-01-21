@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../redux/store';
 import { api } from '../api';
 import { authActions } from '../redux/store/auth/slice';
+import Cookies from 'js-cookie';
 
 // Импортируйте компоненты для разных ролей
 // import AdminComponent from './AdminComponent';
@@ -25,11 +26,9 @@ const ProfilePage: React.FC = () => {
 
     const handleLogout = async () => {
       try {
-        // Вызовите ваш API-метод для выхода
         await api.logout.logoutCreate();
-        // Очистите информацию о пользователе в сторе
         dispatch(authActions.setUserAuth(null));
-        // Перенаправьте пользователя на страницу входа
+        Cookies.remove('session_id');
         navigate('/login');
       } catch (error) {
         console.error('Ошибка выхода:', error);

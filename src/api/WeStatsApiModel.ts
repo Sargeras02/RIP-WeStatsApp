@@ -214,11 +214,6 @@ export interface WeatherStation {
   image_url?: string;
 }
 
-export interface WeStatsUserUpdateRole {
-  /** Роль пользователя */
-  user_role?: "just_user" | "meteorologist" | "r_manager" | "r_admin";
-}
-
 export interface WeStatsUser {
   /** User id */
   user_id?: number;
@@ -696,6 +691,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         method: "GET",
         query: query,
         secure: true,
+        type: ContentType.UrlEncoded,
         format: "json",
         ...params,
       }),
@@ -708,12 +704,42 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request POST:/stations
      * @secure
      */
-    stationsCreate: (data: WeatherStation, params: RequestParams = {}) =>
+    stationsCreate: (
+      data: {
+        /**
+         * @minLength 1
+         * @maxLength 255
+         */
+        name: string;
+        /** @minLength 1 */
+        description: string;
+        /**
+         * @minLength 1
+         * @maxLength 255
+         */
+        location: string;
+        /** @format date-time */
+        open_date: string;
+        status: boolean;
+        /**
+         * @minLength 1
+         * @maxLength 255
+         */
+        image_url?: string;
+        /**
+         * Изображение для загрузки
+         * @format binary
+         */
+        pic: File;
+      },
+      params: RequestParams = {},
+    ) =>
       this.request<WeatherStation, any>({
         path: `/stations`,
         method: "POST",
         body: data,
         secure: true,
+        type: ContentType.FormData,
         format: "json",
         ...params,
       }),
@@ -731,6 +757,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/stations/${id}`,
         method: "GET",
         secure: true,
+        type: ContentType.UrlEncoded,
         format: "json",
         ...params,
       }),
@@ -743,12 +770,43 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request PUT:/stations/{id}
      * @secure
      */
-    stationsUpdate: (id: string, data: WeatherStation, params: RequestParams = {}) =>
+    stationsUpdate: (
+      id: string,
+      data: {
+        /**
+         * @minLength 1
+         * @maxLength 255
+         */
+        name: string;
+        /** @minLength 1 */
+        description: string;
+        /**
+         * @minLength 1
+         * @maxLength 255
+         */
+        location: string;
+        /** @format date-time */
+        open_date: string;
+        status: boolean;
+        /**
+         * @minLength 1
+         * @maxLength 255
+         */
+        image_url?: string;
+        /**
+         * Изображение для загрузки
+         * @format binary
+         */
+        pic?: File;
+      },
+      params: RequestParams = {},
+    ) =>
       this.request<WeatherStation, any>({
         path: `/stations/${id}`,
         method: "PUT",
         body: data,
         secure: true,
+        type: ContentType.FormData,
         format: "json",
         ...params,
       }),
@@ -766,6 +824,7 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/stations/${id}`,
         method: "DELETE",
         secure: true,
+        type: ContentType.UrlEncoded,
         format: "json",
         ...params,
       }),
@@ -779,13 +838,19 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request POST:/update_user_role/{id}
      * @secure
      */
-    updateUserRoleCreate: (id: string, data: WeStatsUserUpdateRole, params: RequestParams = {}) =>
+    updateUserRoleCreate: (
+      id: string,
+      query: {
+        /** User role */
+        role: string;
+      },
+      params: RequestParams = {},
+    ) =>
       this.request<WeStatsUser, any>({
         path: `/update_user_role/${id}`,
         method: "POST",
-        body: data,
+        query: query,
         secure: true,
-        type: ContentType.Json,
         format: "json",
         ...params,
       }),

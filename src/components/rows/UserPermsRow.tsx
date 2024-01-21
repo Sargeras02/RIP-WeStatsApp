@@ -17,7 +17,7 @@ const UserPermsRow: React.FC<UserRowProps> = ({ user, loading }) => {
     const handleMakeAdmin = async() => { await handleSave('r_admin')};
     const handleSave = async(role: "just_user" | "meteorologist" | "r_manager" | "r_admin") => {
         try {
-            await api.updateUserRole.updateUserRoleCreate(user.user_id!.toString(), {user_role: role});
+            await api.updateUserRole.updateUserRoleCreate(user.user_id!.toString(), {role: role});
             setUserRole(role)
         } catch (error) {
             console.error('Ошибка при сохранении изменений:', error);

@@ -12,10 +12,10 @@ const AdminCard: React.FC = () => {
         <a href="/admin/addstation" className="btn btn-primary mx-2">
           Добавить станцию
         </a>
-        <a href="/admin/managestations" className="btn btn-primary mx-2">
+        <a href="/stations" className="btn btn-primary mx-2">
           Управление станциями
         </a>
-        <a href="/admin/managestations" className="btn btn-primary mx-2">
+        <a href="/admin/editmeasurements" className="btn btn-primary mx-2">
           Управление измерениями
         </a>
         <a href="/admin/perms" className="btn btn-primary mx-2">
