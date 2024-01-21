@@ -22,7 +22,7 @@ import UpdateStationDataPage from './pages/management/UpdateStationDataPage.tsx'
 import EditMeasurementsPage from './pages/management/EditMeasurementsPage.tsx';
 import SignupPage from './pages/SignupPage.tsx';
 
-const baseUrl = '/Rip-WeStatsApp'
+const baseUrl = '/RIP-WeStatsApp'
 
 const router = createBrowserRouter([
   {
@@ -70,23 +70,23 @@ const router = createBrowserRouter([
     element: <NewMeasurementPage />
   },
   {
-    path: '/admin/perms',
+    path: baseUrl + '/admin/perms',
     element: <UserPermissionsPage />
   },
   {
-    path: '/admin/orders',
+    path: baseUrl + '/admin/orders',
     element: <OrdersDataPage />
   },
   {
-    path: '/admin/addstation',
+    path: baseUrl + '/admin/addstation',
     element: <NewStationPage />
   },
   {
-    path: '/admin/editstation/:stationId',
+    path: baseUrl + '/admin/editstation/:stationId',
     element: <UpdateStationDataPage />
   },
   {
-    path: '/admin/editmeasurements',
+    path: baseUrl + '/admin/editmeasurements',
     element: <EditMeasurementsPage />
   }
 ])

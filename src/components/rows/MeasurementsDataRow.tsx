@@ -4,6 +4,7 @@ import { Measurement, WeatherStation } from '../../api/WeStatsApiModel';
 import { useAppDispatch } from '../../redux/store';
 import { currentOrderActions } from '../../redux/store/cntOrder/slice';
 import { useCurrentOrder } from '../../redux/store/cntOrder/selector';
+import { useUser } from '../../redux/store/auth/selector';
 
 interface MeasurementsDataRowProps {
   measurement: Measurement;
@@ -11,6 +12,7 @@ interface MeasurementsDataRowProps {
 }
 
 const MeasurementsDataRow: React.FC<MeasurementsDataRowProps> = ({ measurement, stations }) => {
+  const user = useUser();
   const currentOrder = useCurrentOrder();
   const formattedDate = new Date(measurement.created_date!).toLocaleString();
   const dispatch = useAppDispatch();
@@ -37,9 +39,9 @@ const MeasurementsDataRow: React.FC<MeasurementsDataRowProps> = ({ measurement, 
       <td>{stationName}</td>
       <td>{formattedDate}</td>
       <td>
-        {currentOrder.orderInfo && !isMeasurementInCart && <button className="btn btn-success" onClick={handleAddToCart}>Добавить</button>}
-        {currentOrder.orderInfo && isMeasurementInCart && <span>Добавлено</span>}
-        {!currentOrder.orderInfo && <a href='/profile' className='btn btn-primary'>Новый заказ</a>}
+        {user?.role === 'just_user' && currentOrder.orderInfo && !isMeasurementInCart && <button className="btn btn-success" onClick={handleAddToCart}>Добавить</button>}
+        {user?.role === 'just_user' && currentOrder.orderInfo && isMeasurementInCart && <span>Добавлено</span>}
+        {user?.role === 'just_user' && !currentOrder.orderInfo && <a href='/profile' className='btn btn-primary'>Новый заказ</a>}
       </td>
     </tr>
   );

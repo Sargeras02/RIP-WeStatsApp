@@ -20,7 +20,7 @@ const SignupPage: React.FC = () => {
             console.log(sign_response.status)
             if (sign_response.status === 200) {
                 setShowSuccess(true);
-                navigate('/login')
+                navigate('/RIP-WeStatsApp/login')
             } else {
                 setShowError(true);
             }

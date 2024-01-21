@@ -5,7 +5,7 @@ const Footer = () => {
         {/* Ваш контент для подвала */}
         <p className="mb-0">&copy; 2024 WeStats</p>
         <p className="mb-0">By Kostin Sergey IU5-55B</p>
-        <a href="/">Главная</a>
+        <a href="/RIP-WeStatsApp/">Главная</a>
       </div>
     </footer>
   );

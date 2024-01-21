@@ -42,7 +42,7 @@ const StationInfoPage: React.FC = () => {
             { loading && <div className="loadingBg"><Spinner animation="border" /></div> }
             { !loading && !loaded && <div>
                     <h1>Не удалось загрузить запрашиваемые данные.</h1>
-                    <a href={`/stations`} className="btn btn-primary me-3 mt-5">Вернуться</a>
+                    <a href={`/RIP-WeStatsApp/stations`} className="btn btn-primary me-3 mt-5">Вернуться</a>
                 </div>
             }
             { !loading && loaded && <StationContext.Provider value={station}>
@@ -58,7 +58,7 @@ const StationInfoPage: React.FC = () => {
                             <p>Дата открытия: {new Date(station.open_date!).toLocaleString()}</p>
                             <p>Статус: {station.status ? 'Работает' : 'Не работает'}</p>
                             <div className="d-flex justify-content-center">
-                                <a href={`/stations`} className="btn btn-primary me-4">Назад</a>
+                                <a href={`/RIP-WeStatsApp/stations`} className="btn btn-primary me-4">Назад</a>
                                 {/* <Button variant="primary">Order Data</Button> */}
                             </div>
                         </Col>

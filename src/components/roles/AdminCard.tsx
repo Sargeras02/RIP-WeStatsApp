@@ -6,19 +6,19 @@ const AdminCard: React.FC = () => {
       <div className="card-body">
         <h5 className="card-title"><strong>Роль:</strong> Администратор</h5>
         <p className="card-text">Дополнительная информация об администраторе.</p>
-        <a href="/admin/orders" className="btn btn-primary mx-2">
+        <a href="/RIP-WeStatsApp/admin/orders" className="btn btn-primary mx-2">
           Заказы
         </a>
-        <a href="/admin/addstation" className="btn btn-primary mx-2">
+        <a href="/RIP-WeStatsApp/admin/addstation" className="btn btn-primary mx-2">
           Добавить станцию
         </a>
-        <a href="/stations" className="btn btn-primary mx-2">
+        <a href="/RIP-WeStatsApp/stations" className="btn btn-primary mx-2">
           Управление станциями
         </a>
-        <a href="/admin/editmeasurements" className="btn btn-primary mx-2">
+        <a href="/RIP-WeStatsApp/admin/editmeasurements" className="btn btn-primary mx-2">
           Управление измерениями
         </a>
-        <a href="/admin/perms" className="btn btn-primary mx-2">
+        <a href="/RIP-WeStatsApp/admin/perms" className="btn btn-primary mx-2">
           Управление правами
         </a>
       </div>

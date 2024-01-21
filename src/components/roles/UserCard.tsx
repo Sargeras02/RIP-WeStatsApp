@@ -20,7 +20,7 @@ const UserCard: React.FC = () => {
                 <h5 className="card-title"><strong>Роль:</strong> Пользователь</h5>
                 <p className="card-text">Дополнительная информация о пользователе.</p>
                 {currentOrder &&
-                    <a href={`/profile/orders/${currentOrder.order_id}`} className="btn btn-primary mx-2">
+                    <a href={`/RIP-WeStatsApp/profile/orders/${currentOrder.order_id}`} className="btn btn-primary mx-2">
                         Текущий заказ
                     </a>
                 }
@@ -29,7 +29,7 @@ const UserCard: React.FC = () => {
                         Новый заказ
                     </button>
                 }
-                <a href="/profile/orders" className="btn btn-success mx-2">
+                <a href="/RIP-WeStatsApp/profile/orders" className="btn btn-success mx-2">
                 Мои заказы
                 </a>
             </div>

@@ -21,7 +21,7 @@ const ProfilePage: React.FC = () => {
     const navigate = useNavigate();
   
     if (!user) {
-      navigate('/login');
+      navigate('/RIP-WeStatsApp/login');
     }
 
     const handleLogout = async () => {
@@ -29,7 +29,7 @@ const ProfilePage: React.FC = () => {
         await api.logout.logoutCreate();
         dispatch(authActions.setUserAuth(null));
         Cookies.remove('session_id');
-        navigate('/login');
+        navigate('/RIP-WeStatsApp/login');
       } catch (error) {
         console.error('Ошибка выхода:', error);
       }

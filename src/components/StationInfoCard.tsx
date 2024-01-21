@@ -19,9 +19,9 @@ const StationInfoCard: React.FC<MeteoProps> = ({ station }) => {
         <div className="textStyle">
           <Card.Title>{station.name}</Card.Title>
         </div>
-        <a href={`/stations/${station.station_id}`} className="btn btn-primary">Подробнее</a>
+        <a href={`/RIP-WeStatsApp/stations/${station.station_id}`} className="btn btn-primary">Подробнее</a>
         {user && user.role === 'Админ' && (
-          <a href={`/admin/editstation/${station.station_id}`} className="btn btn-secondary my-2">
+          <a href={`/RIP-WeStatsApp/admin/editstation/${station.station_id}`} className="btn btn-secondary my-2">
             Изменить
           </a>
         )}

@@ -43,7 +43,7 @@ const LoginPage: React.FC = () => {
                         console.error('Ошибка загрузки заказа', error);
                     }
         
-                    navigate('/profile')
+                    navigate('/RIP-WeStatsApp/profile')
                 } catch (error) {
                     console.error('Ошибка загрузки профиля', error);
                 }

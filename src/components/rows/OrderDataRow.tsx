@@ -28,7 +28,7 @@ const OrderDataRow: React.FC<OrderDataRowProps> = ({ order, onApprove, onReject 
                         disabled={order.status !== 'formed'}>
                         Отклонить
                     </button>
-                    <a href={`/profile/orders/${order.order_id}`} className="btn btn-primary ms-2">Детали</a>
+                    <a href={`/RIP-WeStatsApp/profile/orders/${order.order_id}`} className="btn btn-primary ms-2">Детали</a>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@ const ManagerCard: React.FC = () => {
       <div className="card-body">
         <h5 className="card-title"><strong>Роль:</strong> Менеджер</h5>
         <p className="card-text">Дополнительная информация о менеджере.</p>
-        <a href="/admin/orders" className="btn btn-primary mx-2">
+        <a href="/RIP-WeStatsApp/admin/orders" className="btn btn-primary mx-2">
           Заказы
         </a>
       </div>
