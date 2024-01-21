@@ -22,49 +22,51 @@ import UpdateStationDataPage from './pages/management/UpdateStationDataPage.tsx'
 import EditMeasurementsPage from './pages/management/EditMeasurementsPage.tsx';
 import SignupPage from './pages/SignupPage.tsx';
 
+const baseUrl = '/Rip-WeStatsApp'
+
 const router = createBrowserRouter([
   {
-    path: '/RIP-WeStatsApp/',
+    path: baseUrl + '/',
     element: <HomePage />
   },
   {
-    path: '/RIP-WeStatsApp/stations',
+    path: baseUrl + '/stations',
     element: <StationsListPage />
   },
   {
-    path: '/stations/:stationId',
+    path: baseUrl + '/stations/:stationId',
     element: <StationInfoPage />
   },
   {
-    path: '/measurements',
+    path: baseUrl + '/measurements',
     element: <MeasurementsPage />
   },
   {
-    path: '/login',
+    path: baseUrl + '/login',
     element: <LoginPage />
   },
   {
-    path: '/RIP-WeStatsApp/signup',
+    path: baseUrl + '/signup',
     element: <SignupPage />
   },
   {
-    path: '/profile',
+    path: baseUrl + '/profile',
     element: <ProfilePage />
   },
   {
-    path: '/profile/orders',
+    path: baseUrl + '/profile/orders',
     element: <UserOrdersPage />
   },
   {
-    path: '/profile/orders/current',
+    path: baseUrl + '/profile/orders/current',
     element: <OrderInfoPage />
   },
   {
-    path: '/profile/orders/:orderId',
+    path: baseUrl + '/profile/orders/:orderId',
     element: <OrderInfoPage />
   },
   {
-    path: '/uploadmeasure',
+    path: baseUrl + '/uploadmeasure',
     element: <NewMeasurementPage />
   },
   {
