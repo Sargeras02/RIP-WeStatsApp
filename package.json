@@ -1,9 +1,9 @@
 {
   "name": "westats.front",
   "private": false,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "type": "module",
-  "homepage": "https://sargeras02.github.io/RIP-WeStatsApp/",
+  "homepage": "https://sargeras02.github.io/RIP-WeStatsApp",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
