@@ -27,6 +27,7 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0"
   },
+  "homepage": "https://sargeras02.github.io/RIP-WeStatsApp/",
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
     "@types/react": "^18.2.43",
