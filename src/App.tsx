@@ -4,7 +4,7 @@ import React from 'react';
 
 import MainNavBar from './components/MainNavBar';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, HashRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/HomePage.tsx'
 import StationsListPage from './pages/StationsListPage.tsx';
 import StationInfoPage from './pages/StationInfoPage.tsx';
@@ -104,7 +104,9 @@ const App: React.FC = () => {
     <div>
       <MainNavBar />
       <hr />
-      <RouterProvider router={router} />
+      <HashRouter>
+        <RouterProvider router={router} />
+      </HashRouter>
       <Footer />
     </div>
   );
