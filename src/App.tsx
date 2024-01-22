@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <HomePage />
   },
   {
-    path: '/stations',
+    path: baseUrl + '/stations',
     element: <StationsListPage />
   },
   {
@@ -88,6 +88,14 @@ const router = createBrowserRouter([
   {
     path: baseUrl + '/admin/editmeasurements',
     element: <EditMeasurementsPage />
+  },
+  {
+    path: '/a',
+    element: <HomePage />
+  },
+  {
+    path: 'b',
+    element: <HomePage />
   }
 ])
 
