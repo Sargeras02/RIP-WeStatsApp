@@ -96,6 +96,10 @@ const router = createBrowserRouter([
   {
     path: 'b',
     element: <HomePage />
+  },
+  {
+    path: '/c/',
+    element: <HomePage />
   }
 ])
 
@@ -104,9 +108,7 @@ const App: React.FC = () => {
     <div>
       <MainNavBar />
       <hr />
-      <HashRouter>
-        <RouterProvider router={router} />
-      </HashRouter>
+      <RouterProvider router={router} />
       <Footer />
     </div>
   );
