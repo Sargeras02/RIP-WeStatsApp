@@ -4,6 +4,7 @@ import { Col, Row, Button, Spinner } from 'react-bootstrap';
 import { api } from '../api';
 import { WeatherStation } from '../api/WeStatsApiModel';
 import StationInfoCard from '../components/StationInfoCard';
+import manualStations from '../debugtmp/ManualStations';
 
 const StationsListPage: FC = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -16,6 +17,7 @@ const StationsListPage: FC = () => {
           setStations(data);
         } catch (error) {
           console.error('Ошибка при получении станций:', error);
+          setStations(manualStations)
         } finally {
           setLoading(false);
         }
@@ -30,6 +32,7 @@ const StationsListPage: FC = () => {
           setStations(data);
         } catch (error) {
           console.error('Ошибка при получении станций:', error);
+          setStations(manualStations.filter(station => station.name.includes(searchValue)));
         } finally {
           setLoading(false);
         }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage: React.FC = () => {
   return (
-    <div style={{ backgroundImage: 'url("RIP-WeStatsApp/images/background.png")', backgroundSize: 'cover', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textAlign: 'center' }}>
+    <div style={{ backgroundImage: 'url("/background.png")', backgroundSize: 'cover', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textAlign: 'center' }}>
       <div>
         <h1 style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>Добро пожаловать в нашу метеослужбу</h1>
         <p style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>

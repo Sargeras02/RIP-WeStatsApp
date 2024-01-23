@@ -5,6 +5,7 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap';
 
 import { api } from '../api';
 import { WeatherStation } from '../api/WeStatsApiModel';
+import manualStations from '../debugtmp/ManualStations';
 
   // Создание контекста для станции
 const StationContext = createContext<Partial<WeatherStation>>({});
@@ -27,8 +28,15 @@ const StationInfoPage: React.FC = () => {
                     setLoaded(true);
                 }
             } catch (error) {
-                console.error('Failed to fetch station data', error);
+                console.error('Failed to fetch station data. Using mock.', error);
                 setLoaded(false);
+                const manualStation = manualStations[Number(stationId) - 1] ; //.find(station => station.station_id === Number(stationId));
+                console.log(manualStation);
+                if (manualStation) {
+                    console.log('OK')
+                    setStation(manualStation);
+                    setLoaded(true);
+                }
             } finally {
                 setLoading(false);
             }

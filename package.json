@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.4.2",
   "type": "module",
-  "homepage": "https://sargeras02.github.io/RIP-WeStatsApp/",
+  "homepage": "https://sargeras02.github.io/RIP-WeStatsApp",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,10 +11,11 @@
     "preview": "vite preview",
     "generate-api": "node scripts/generate-api.mjs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
+    "@syncfusion/ej2-react-navigations": "^24.1.46",
     "axios": "^1.6.5",
     "bootstrap": "^5.3.2",
     "date-fns": "^3.3.0",

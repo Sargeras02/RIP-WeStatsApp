@@ -4,7 +4,7 @@ import React from 'react';
 
 import MainNavBar from './components/MainNavBar';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage.tsx'
 import StationsListPage from './pages/StationsListPage.tsx';
 import StationInfoPage from './pages/StationInfoPage.tsx';
@@ -21,10 +21,11 @@ import MeasurementsPage from './pages/MeasurementsPage.tsx';
 import UpdateStationDataPage from './pages/management/UpdateStationDataPage.tsx';
 import EditMeasurementsPage from './pages/management/EditMeasurementsPage.tsx';
 import SignupPage from './pages/SignupPage.tsx';
+import Breadcrumbs from './components/Breadcrumbs .tsx';
 
 const baseUrl = '/RIP-WeStatsApp'
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: baseUrl + '/',
     element: <HomePage />
@@ -101,16 +102,25 @@ const router = createBrowserRouter([
     path: '/c/',
     element: <HomePage />
   }
-])
+]
+//const router = createBrowserRouter(routes)
 
 const App: React.FC = () => {
+
   return (
-    <div>
-      <MainNavBar />
-      <hr />
-      <RouterProvider router={router} />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div>
+        <MainNavBar />
+        <Breadcrumbs />
+        <hr />
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 

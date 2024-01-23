@@ -17,6 +17,7 @@ const StationInfoCard: React.FC<MeteoProps> = ({ station }) => {
     <Card className="station-card mt-3">
       <Card.Body>
         <div className="textStyle">
+          {station.image_url && <img src={station.image_url} alt="Station" className="img-fluid" />}
           <Card.Title>{station.name}</Card.Title>
         </div>
         <a href={`/RIP-WeStatsApp/stations/${station.station_id}`} className="btn btn-primary">Подробнее</a>
