@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# Цель работы
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Завершение интерфейса пользователя в React
 
-Currently, two official plugins are available:
+# Обзор работы
+Добавлены страницы для регистрации и авторизации. Добавлено окно для просмотра списка заявок пользователя.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+В меню добавлены пункты для новых страниц.
 
-## Expanding the ESLint configuration
+Для обращений к методам веб-сервиса использовалась кодогенерация с axios.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+При выполнении запросов на страницы добавлены анимации загрузки.
 
-- Configure the top-level `parserOptions` property like this:
+Добавлен менеджер состояний Redux Toolkit. Было реализовано переключение между интерфейсом гостя и интерфейсом пользователя по кнопке Вход/Выход. После авторизации в меню отображается Имя/Логин пользователя. 
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+На странице услуг добавлена кнопка "Добавить" для внесения данной услуги в новую заявку.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Созданы диаграммы классов с детализацией бэкенда и фронтенда.
+
+![Диаграмма классов бэка](https://github.com/Sargeras02/RIP-WeStatsApp/assets/38318884/0b17d252-feaa-4a6a-a849-b2185327c74a)
+
+![Диаграмма классов фронта](https://github.com/Sargeras02/RIP-WeStatsApp/assets/38318884/437c1e85-d8c3-409f-b4dd-29894ba959df)
+
+Создана диаграммы деятельнсти.
+
+![Диаграмма Деятельности](https://github.com/Sargeras02/RIP-WeStatsApp/assets/38318884/57a8bb43-44b0-4d48-9d97-0a6af0a76d8f)
